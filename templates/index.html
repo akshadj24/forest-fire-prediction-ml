@@ -1,0 +1,88 @@
+{% extends 'base.html' %}
+
+{% block title %}Home | Forest Fire Prediction{% endblock %}
+
+{% block content %}
+<style>
+    .hero {
+        text-align: center;
+        max-width: 800px;
+        animation: fadeIn 1s ease-out;
+    }
+
+    .hero h1 {
+        font-size: 4rem;
+        margin-bottom: 20px;
+        line-height: 1.2;
+    }
+
+    .hero h1 span {
+        background: linear-gradient(90deg, var(--accent-cyan), var(--accent-violet));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    .hero p {
+        font-size: 1.2rem;
+        color: var(--text-muted);
+        margin-bottom: 40px;
+        line-height: 1.6;
+    }
+
+    .features {
+        display: flex;
+        gap: 20px;
+        margin-top: 60px;
+        justify-content: center;
+    }
+
+    .feature-card {
+        padding: 20px;
+        text-align: left;
+        width: 30%;
+        transition: transform 0.3s;
+    }
+
+    .feature-card:hover {
+        transform: translateY(-5px);
+    }
+
+    .feature-card h3 {
+        color: var(--accent-cyan);
+        margin-bottom: 10px;
+        font-size: 1.2rem;
+    }
+
+    .feature-card p {
+        font-size: 0.95rem;
+        color: var(--text-muted);
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+</style>
+
+<div class="hero">
+    <h1>Predicting Forest Fires with <span>Precision</span></h1>
+    <p>Leveraging the power of Machine Learning and Ridge Regression to forecast the Fire Weather Index for the Algerian regions. Data-driven insights to prevent disasters before they happen.</p>
+    
+    <a href="{{ url_for('predict') }}" class="btn-primary" style="font-size: 1.2rem; padding: 15px 30px;">Initialize Prediction</a>
+
+    <div class="features">
+        <div class="glass-panel feature-card">
+            <h3>Machine Learning</h3>
+            <p>Trained on the Algerian Forest Fires dataset using robust regression techniques.</p>
+        </div>
+        <div class="glass-panel feature-card">
+            <h3>Real-time Analysis</h3>
+            <p>Input meteorological metrics like Temperature and Humidity for instant predictions.</p>
+        </div>
+        <div class="glass-panel feature-card">
+            <h3>High Accuracy</h3>
+            <p>Optimized with Ridge Regression for enhanced reliability in meteorological forecasts.</p>
+        </div>
+    </div>
+</div>
+{% endblock %}

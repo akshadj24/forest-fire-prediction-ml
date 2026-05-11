@@ -1,0 +1,95 @@
+{% extends 'base.html' %}
+
+{% block title %}About | Forest Fire Prediction{% endblock %}
+
+{% block content %}
+<style>
+    .about-container {
+        max-width: 800px;
+        width: 100%;
+        animation: fadeIn 0.8s ease-out;
+    }
+
+    .about-container h1 {
+        font-size: 2.5rem;
+        margin-bottom: 30px;
+        color: var(--accent-cyan);
+        text-align: center;
+    }
+
+    .section-title {
+        font-size: 1.5rem;
+        color: var(--accent-violet);
+        margin-top: 30px;
+        margin-bottom: 15px;
+        border-bottom: 1px solid rgba(138, 43, 226, 0.3);
+        padding-bottom: 10px;
+    }
+
+    .about-content {
+        line-height: 1.8;
+        font-size: 1.05rem;
+        color: var(--text-muted);
+    }
+
+    .about-content p {
+        margin-bottom: 20px;
+    }
+
+    ul.features-list {
+        list-style: none;
+        padding-left: 0;
+    }
+
+    ul.features-list li {
+        margin-bottom: 10px;
+        position: relative;
+        padding-left: 25px;
+    }
+
+    ul.features-list li::before {
+        content: "▹";
+        color: var(--accent-cyan);
+        position: absolute;
+        left: 0;
+        font-size: 1.2rem;
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+</style>
+
+<div class="glass-panel about-container">
+    <h1>Project Overview</h1>
+    
+    <div class="about-content">
+        <p>
+            The Forest Fire Prediction project is designed to evaluate meteorological data and predict the Fire Weather Index (FWI). The FWI is a crucial metric used globally to estimate the danger of forest fires. 
+        </p>
+
+        <h2 class="section-title">The Dataset</h2>
+        <p>
+            This application is trained on the <strong>Algerian Forest Fires Dataset</strong>. It comprises data from two regions in Algeria (Bejaia and Sidi Bel-abbes) over a period from June to September.
+        </p>
+
+        <h2 class="section-title">Model Architecture</h2>
+        <p>
+            The underlying machine learning model utilizes <strong>Ridge Regression</strong>. Ridge regression is a technique for analyzing multiple regression data that suffer from multicollinearity. By adding a degree of bias to the regression estimates, ridge regression reduces the standard errors.
+        </p>
+
+        <h2 class="section-title">Key Input Features</h2>
+        <ul class="features-list">
+            <li><strong>Temperature (Temp)</strong>: temperature in Celsius.</li>
+            <li><strong>Relative Humidity (RH)</strong>: relative humidity in %.</li>
+            <li><strong>Wind Speed (WS)</strong>: wind speed in km/h.</li>
+            <li><strong>Fine Fuel Moisture Code (FFMC)</strong>: represents moisture of litter and other cured fine fuels.</li>
+            <li><strong>Duff Moisture Code (DMC)</strong>: represents moisture content of loosely compacted organic layers.</li>
+            <li><strong>Drought Code (DC)</strong>: represents moisture of deep, compact organic layers.</li>
+            <li><strong>Initial Spread Index (ISI)</strong>: expected rate of fire spread.</li>
+            <li><strong>Buildup Index (BUI)</strong>: amount of fuel available for combustion.</li>
+        </ul>
+    </div>
+</div>
+{% endblock %}
